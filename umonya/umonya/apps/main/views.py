@@ -139,7 +139,7 @@ def send_email_f(f):
     subject = "User Registration"
     message = ''
     for item in f.cleaned_data:
-        message = message + item.upper() + "\n" + str(f.cleaned_data[item]) + "\n\n"
+        message = "%s %s \n %s \n\n" % (message, item.upper(), str(f.cleaned_data[item]))
     sender = "umonya@admin.com"
     recipients = ["umonya@admin.com"]
     if send_mail(subject, message, sender, recipients):

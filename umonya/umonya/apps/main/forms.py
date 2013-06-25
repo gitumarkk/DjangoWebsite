@@ -21,10 +21,10 @@ class RegistrationForm(forms.Form):
                                                                         required: "",
                                                                         "type": "email"}))
         elif item.field_type == "IntegerField":
-            vars()[item.name] = forms.IntegerField(label=item.text,
-                                                   required=item.required,
-                                                   widget=forms.TextInput(attrs={"class": required +
-                                                                          "digits", required: ""}))
+            vars()[item.name] = forms.CharField(label=item.text,
+                                                required=item.required,
+                                                widget=forms.TextInput(attrs={"class": "%s %s" %
+                                                                      (required, "digits"), required: ""}))
         elif item.field_type == "TextField":
             vars()[item.name] = forms.CharField(label=item.text,
                                                 required=item.required,
