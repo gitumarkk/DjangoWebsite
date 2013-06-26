@@ -138,9 +138,12 @@ def send_email_f(f):
     from django.core.mail import send_mail
     subject = "User Registration"
     message = ''
-    for item in f.cleaned_data:
-        message = "%s %s \n %s \n\n" % (message, item.upper(), str(f.cleaned_data[item]))
+
+    for key, value in f.cleaned_data.iteritems():
+        message = "%s %s\n%s\n\n" % (message, key.upper(), str(value))
+
     sender = "umonya@admin.com"
     recipients = ["umonya@admin.com"]
+
     if send_mail(subject, message, sender, recipients):
         return True

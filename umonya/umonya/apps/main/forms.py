@@ -23,8 +23,8 @@ class RegistrationForm(forms.Form):
         elif item.field_type == "IntegerField":
             vars()[item.name] = forms.CharField(label=item.text,
                                                 required=item.required,
-                                                widget=forms.TextInput(attrs={"class": "%s %s" %
-                                                                      (required, "digits"), required: ""}))
+                                                widget=forms.TextInput(attrs={"class": "digits",
+                                                                              required: ""}))
         elif item.field_type == "TextField":
             vars()[item.name] = forms.CharField(label=item.text,
                                                 required=item.required,
