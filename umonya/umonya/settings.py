@@ -186,4 +186,5 @@ EMAIL_USER_TLS = True
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # CAPTCHA STUFF
-CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'
+RECAPTCHA_PUBLIC_KEY = "6Le5IuQSAAAAAGeTlu2uuj2AcOG-1eDB-qdtz8Xf"
+RECAPTCHA_PRIVATE_KEY = "6Le5IuQSAAAAABqGjiSAhyEVgBM-X0xkJGpKrJCG"
