@@ -18,3 +18,18 @@ $(function(){
 	} 
   });
 });
+
+/* Validating Registration Form */
+$().ready(function(){
+  $("#registrationForm").validate()
+  $(".digits").validate({
+	  rules: {
+		  digits: true,
+	  }
+  });
+});
+
+/* Validating Contact Form */
+$().ready(function(){
+  $("#contactForm").validate()
+});

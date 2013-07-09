@@ -23,18 +23,6 @@
         <input type="submit" value="Register">
       </div>
     </form>
-
-    <script type="text/javascript">
-      $().ready(function(){
-      $("#registrationForm").validate()
-      $(".digits").validate({
-          rules: {
-              digits: true,
-          }
-      });
-      });
-    </script>
-
   </div>
 {% elif success %}
   <h1>
