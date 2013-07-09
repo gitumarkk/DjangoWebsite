@@ -1,6 +1,6 @@
 from django import forms
 from models import Registration
-from captcha.fields import CaptchaField
+from captcha.fields import ReCaptchaField
 
 
 class RegistrationForm(forms.Form):
@@ -45,4 +45,7 @@ class ContactForm(forms.Form):
     text = forms.CharField(label="Talk to us",
                            widget=forms.Textarea(attrs={}))
 
-    captcha = CaptchaField()
+    captcha = ReCaptchaField(
+              public_key="6Le5IuQSAAAAAGeTlu2uuj2AcOG-1eDB-qdtz8Xf",
+              private_key="6Le5IuQSAAAAABqGjiSAhyEVgBM-X0xkJGpKrJCG"
+              )
