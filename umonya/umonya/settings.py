@@ -137,7 +137,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'captcha'
+    'captcha',
+    'south'
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
