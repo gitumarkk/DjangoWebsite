@@ -6,4 +6,5 @@ python:
 install:
     - pip install -r umonya/requirements.txt --use-mirrors
     - umonya/manage.py syncdb --noinput
+	- umonya/manage.py migrate
 script: umonya/manage.py test main
