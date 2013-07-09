@@ -1,5 +1,6 @@
 from django import forms
 from models import Registration
+from captcha.fields import CaptchaField
 
 
 class RegistrationForm(forms.Form):
@@ -43,3 +44,5 @@ class ContactForm(forms.Form):
 
     text = forms.CharField(label="Talk to us",
                            widget=forms.Textarea(attrs={}))
+
+    captcha = CaptchaField()

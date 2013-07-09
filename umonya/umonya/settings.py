@@ -137,6 +137,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'captcha'
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -183,3 +184,6 @@ EMAIL_USER_TLS = True
 
 # For development only if no mail server is present logs mail to console
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# CAPTCHA STUFF
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'
