@@ -19,9 +19,6 @@ $(function(){
   });
 });
 
-/* Validating Registration Form */
-$().ready(function(){
-/* Validating Contact Form */
 $().ready(function(){
   $("#contactForm").validate()
 });
