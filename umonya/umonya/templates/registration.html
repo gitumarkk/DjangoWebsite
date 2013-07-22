@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block content %}
+  {% block content %}
   {% if section.enabled %}
     <h2>
       REGISTRATION
@@ -7,12 +7,9 @@
     <div class="span8">
 
       <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dElIYTQxR3BFeTRUVEZtUUdnMnNfdWc6MA" width="760" height="2034" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-
-        <div class="grid_6">
-          <input type="submit" value="Register">
-        </div>
       </form>
     </div>
+  {% else %}
     <h1>
       Sorry but the registration has closed.
     </h1>
