@@ -1,7 +1,5 @@
 from django.test import TestCase
 from umonya.apps.main.models import About, Page, Dynamic_Section
-import datetime
-from django.utils.timezone import utc
 from django.core.urlresolvers import reverse
 
 
@@ -59,9 +57,7 @@ class TestPageContent(TestCase):
     def test_about_bios(self):
         About.objects.create(name="Umonya Name",
                              bios="Umonya Bios",
-                             bios_photo="path/2/Um/Photo.png",
-                             pub_date=datetime.datetime.utcnow().
-                             replace(tzinfo=utc))
+                             bios_photo="path/2/Um/Photo.png")
 
         response = self.client.get("/about/")
         content = response.context['about'][0]
