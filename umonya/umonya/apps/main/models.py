@@ -61,7 +61,6 @@ class About(models.Model):
     bios = models.TextField()
     bios_photo = models.ImageField(upload_to=get_image_path,
                                    blank=True, null=True)
-    pub_date = models.DateTimeField("Date Published")
 
     def __unicode__(self):
         return self.name
