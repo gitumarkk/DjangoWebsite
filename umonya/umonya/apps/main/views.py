@@ -1,9 +1,9 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from models import About, Page, Dynamic_Section, Announcement
-from forms import RegistrationForm, ContactForm
-from django.http import HttpResponseRedirect
+from forms import ContactForm
 from django.core.context_processors import csrf
 from django.template import RequestContext
+
 
 def home(request, page_number=1):
     """
@@ -83,18 +83,6 @@ def resources(request):
 
 
 def registration(request):
-    if request.method == "POST":
-        f = RegistrationForm(request.POST)
-
-        if f.is_valid():
-            send_email_f(f)
-            success = {"success": "success"}
-            return render_to_response("registration.html", success,
-                                      context_instance=RequestContext(request))
-
-    else:
-        f = RegistrationForm()
-
     try:
         section = Dynamic_Section.objects.get(section="registration")
     except Dynamic_Section.DoesNotExist:
@@ -103,7 +91,6 @@ def registration(request):
     args = {}
     args.update(csrf(request))
     args["section"] = section
-    args["form"] = f
 
     return render_to_response("registration.html", args,
                               context_instance=RequestContext(request))
