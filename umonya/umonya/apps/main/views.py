@@ -73,8 +73,7 @@ def custom_404(request, page_number, slug):
 def about(request):
     about = About.objects.all()
     page_content = Page.objects.all().filter(page="about")
-    return render_to_response("about.html", {'about': about,
-                              "page_content": page_content},
+    return render_to_response("about.html", {'about': about, "page_content": page_content},
                               context_instance=RequestContext(request))
 
 
