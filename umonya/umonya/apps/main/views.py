@@ -127,7 +127,7 @@ def send_email_f(f):
     message = ''
 
     for key, value in f.cleaned_data.iteritems():
-        message = "%s %s\n%s\n\n" % (message, key.upper(), str(value))
+        message = "%s %s\n%s\n\n" % (message, key.upper(), value)
 
     sender = "umonya@admin.com"
     recipients = ["umonya@admin.com"]
