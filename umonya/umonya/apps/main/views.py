@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response, get_object_or_404
-from models import About, Page, Dynamic_Section, Announcement
+from models import About, Page, Dynamic_Section, Announcement, Registration
 from forms import ContactForm
 from django.core.context_processors import csrf
 from django.template import RequestContext
@@ -87,8 +87,11 @@ def registration(request):
     except Dynamic_Section.DoesNotExist:
         section = False
 
+    registration = Registration.objects.all()
+
     args = {}
     args.update(csrf(request))
+    args['registration'] = registration[0]
     args["section"] = section
 
     return render_to_response("registration.html", args,
