@@ -89,7 +89,10 @@ def registration(request):
 
     registration = Registration.objects.all()
 
-    args = {"section": section, "registration": registration[0]}
+    if len(registration) != 0:
+        registration = registration[0]
+
+    args = {"section": section, "registration": registration}
     args.update(csrf(request))
 
     return render_to_response("registration.html", args,
