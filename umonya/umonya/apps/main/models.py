@@ -94,7 +94,7 @@ class Registration(models.Model):
     """
         Specify the registration section via admin
     """
-    form_code = models.CharField(max_length=500)
+    form_code = models.URLField(max_length=500)
 
     def __unicode__(self):
         return self.form_code
