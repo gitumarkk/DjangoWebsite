@@ -23,9 +23,3 @@ class TestForms(TestCase):
         form_data = {"name": "", "email": "umonya", "text": ""}
         form = ContactForm(data=form_data)
         self.assertEqual(form["email"].errors, [u'Enter a valid email address.'])
-
-    # Can't test this due to Captcha
-    # def test_contact_form_post(self):
-    #     form_data = {"name": "Mark Gituma", "email": "Email@mail.com", "text": "Hello World"}
-    #     response = self.client.post("/contact/", form_data)
-    #     self.assertIn("success", response.context)

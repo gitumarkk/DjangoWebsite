@@ -1,5 +1,5 @@
 from django.test import TestCase
-from umonya.apps.main.models import About, Page, Dynamic_Section
+from umonya.apps.main.models import About, Page, Dynamic_Section, Registration
 from django.core.urlresolvers import reverse
 
 
@@ -23,6 +23,7 @@ class TestPages(TestCase):
 
     def test_registration(self):
         Dynamic_Section.objects.create(section="registration", enabled=True)
+        Registration.objects.create(form_code="<iframe></iframe>")
         response = self.client.get("/registration/")
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "registration.html")
@@ -68,10 +69,11 @@ class TestPageContent(TestCase):
 
     def test_registration_open(self):
         Dynamic_Section.objects.create(section="registration", enabled=True)
+        Registration.objects.create(form_code="<iframe></iframe>")
         response = self.client.get("/registration/")
         self.assertTrue("section" in response.context)
         self.assertEqual(response.context["section"].enabled, True)
-        self.assertContains(response, "</form>")
+        self.assertContains(response, "</iframe>")
         self.assertNotContains(response, "registration has closed")
 
     def test_registration_closed(self):
