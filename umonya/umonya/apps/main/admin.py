@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Announcement, About, Page, Dynamic_Section
+from models import Announcement, About, Page, Dynamic_Section, Registration
 
 #~ Ensuring that admin is aware of this class
 
@@ -14,3 +14,4 @@ admin.site.register(Announcement, AnnouncementAdmin)
 admin.site.register(About)
 admin.site.register(Page)
 admin.site.register(Dynamic_Section)
+admin.site.register(Registration)
