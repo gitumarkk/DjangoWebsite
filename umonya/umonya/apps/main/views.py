@@ -89,10 +89,8 @@ def registration(request):
 
     registration = Registration.objects.all()
 
-    args = {}
+    args = {"section": section, "registration": registration[0]}
     args.update(csrf(request))
-    args['registration'] = registration[0]
-    args["section"] = section
 
     return render_to_response("registration.html", args,
                               context_instance=RequestContext(request))
