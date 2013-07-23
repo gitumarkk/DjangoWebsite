@@ -132,5 +132,4 @@ def send_email_f(f):
     sender = "umonya@admin.com"
     recipients = ["umonya@admin.com"]
 
-    if send_mail(subject, message, sender, recipients):
-        return True
+    return send_mail(subject, message, sender, recipients)
