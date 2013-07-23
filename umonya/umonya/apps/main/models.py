@@ -90,5 +90,11 @@ class Dynamic_Section(models.Model):
         return self.section
 
 
-class Contact(models.Model):
-    pass
+class Registration(models.Model):
+    """
+        Specify the registration section via admin
+    """
+    form_code = models.CharField(max_length=500)
+
+    def __unicode__(self):
+        return self.form_code
