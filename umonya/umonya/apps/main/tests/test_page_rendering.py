@@ -1,5 +1,5 @@
 from django.test import TestCase
-from umonya.apps.main.models import About, Page, Dynamic_Section, Registration
+from umonya.apps.main.models import About, Page,  Registration
 from django.core.urlresolvers import reverse
 
 
@@ -22,7 +22,6 @@ class TestPages(TestCase):
         self.assertTemplateUsed(response, "about.html")
 
     def test_registration(self):
-        Dynamic_Section.objects.create(section="registration", enabled=True)
         Registration.objects.create(form_code="<iframe></iframe>")
         response = self.client.get("/registration/")
         self.assertEqual(response.status_code, 200)
@@ -68,19 +67,17 @@ class TestPageContent(TestCase):
         self.assertEqual(content.bios_photo, "path/2/Um/Photo.png")
 
     def test_registration_open(self):
-        Dynamic_Section.objects.create(section="registration", enabled=True)
         Registration.objects.create(form_code="<iframe></iframe>")
         response = self.client.get("/registration/")
-        self.assertTrue("section" in response.context)
-        self.assertEqual(response.context["section"].enabled, True)
+        self.assertTrue("registration_open" in response.context)
+        self.assertEqual(response.context["registration_open"], True)
         self.assertContains(response, "</iframe>")
         self.assertNotContains(response, "registration has closed")
 
     def test_registration_closed(self):
-        Dynamic_Section.objects.create(section="registration", enabled=False)
         response = self.client.get("/registration/")
-        self.assertTrue("section" in response.context)
-        self.assertEqual(response.context["section"].enabled, False)
+        self.assertTrue("registration_open" in response.context)
+        self.assertEqual(response.context["registration_open"], False)
         self.assertNotContains(response, "</form>")
         self.assertContains(response, "registration has closed")
 
