@@ -86,7 +86,7 @@ def registration(request):
     if registration.exists():
         registration = registration[0]
     else:
-        registration = False
+        registration = None
 
     args = {"registration": registration}
     args.update(csrf(request))
